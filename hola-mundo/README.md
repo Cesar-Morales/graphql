@@ -31,3 +31,13 @@ URL = http://localhost:9000/graphql
                 graphql: holaConNombre(nombre: " GraphQL")
                 holaAlCUrsoGraphQL
         }
+
+### Post Refactoring
+
+> Una vez terminado con el refactoring vamos a sacar express-graphql
+
+                npm uninstall express-graphql
+
+> Y ahora hacemos una instalacion de apolo server express
+
+                npm install apollo-server-express
