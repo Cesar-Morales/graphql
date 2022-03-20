@@ -2,15 +2,27 @@ import express from 'express';
 import compression from 'compression';
 import cors from 'cors';
 import { createServer } from 'http';
+import { ApolloServer } from 'apollo-server-express';
+import schema from './schema';
+import ExpressPlaygroundMiddleware from 'graphql-playground-middleware-express';
 
 const app = express();
 
 app.use(cors());
-app.use(compression());
+app.use(compression()); 
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-})
+const server = new ApolloServer({
+    schema,
+    introspection: true
+});
+
+server.start().then(res => {
+    server.applyMiddleware({app});
+});
+
+app.get('/', ExpressPlaygroundMiddleware({
+    endpoint: '/graphql'
+}));
 
 const PORT = 3000
 const httpServer = createServer(app);

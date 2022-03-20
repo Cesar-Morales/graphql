@@ -15,7 +15,11 @@
 
 - Instalo demas dependencias produccion
 
-        npm install express graphql ncp http graphql-import-node compression cors lodash typescript graphql-tools graphql-playground-middleware-express apollo-server-express tsc-node
+        npm install express graphql ncp http graphql-import-node compression cors lodash typescript graphql-tools graphql-playground-middleware-express apollo-server-express  tsc-node graphql-tools
+
+- A veces es necesario para IResolvers (con/sin --force)
+
+        npm install graphql-tools@4.x
 
 - Instalo dependencias de desarrollo
 
